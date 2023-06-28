@@ -3,21 +3,15 @@ on:
   push:
     branches: [ "master" ]
 jobs:
-  CheckOut:
+  CheckOut-Build-Test:
    runs-on: ubuntu-latest
    steps:
    # checkout stage
     - uses: actions/checkout@v3
-  Build: # build docker
-    runs-on: ubuntu-latest
-    steps:
-     - name: build docker
-       run: docker build --file Dockerfile .
-     - name: run docker  
-       run: docker run -itd --name node-hello -p 3000:3000 --tag my-image-name:latest
-  Test:
-    runs-on: ubuntu-latest
-    steps:
-      - name: test app on browser
-        run: sleep 5 && curl localhost:3000 
+    - name: build docker
+      run: docker build . --file Dockerfile --tag:latest
+    - name: run docker  
+      run: docker run -itd --name node-hello -p 3000:3000 --tag my-image-name:latest
+    - name: test app on browser
+      run: sleep 5 && curl localhost:3000 
       
