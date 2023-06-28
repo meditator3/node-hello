@@ -14,6 +14,8 @@ jobs:
        - name: echo parameter
          run: echo "${{ github.event.inputs.source_branch }} , ${{ github.event.inputs.destination_branch }}"
        - name: create pull request with parameters
-         run: git pull ${{ github.event.inputs.source_branch }} ${{ github.event.inputs.destination_branch }}
+         run: |
+             git branch ${{ github.event.inputs.destination_branch }} &&           
+             git pull ${{ github.event.inputs.source_branch }} ${{ github.event.inputs.destination_branch }}
     
       
