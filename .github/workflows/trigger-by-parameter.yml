@@ -15,6 +15,6 @@ jobs:
     runs-on: ubuntu-latest
     steps:
        - name: echo parameter
-         run: echo "${{ github.event.inputs.source_branch }}
+         run: echo "${{ github.event.inputs.source_branch }}"
     
       
