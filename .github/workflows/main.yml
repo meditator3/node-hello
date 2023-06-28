@@ -11,7 +11,7 @@ jobs:
     - name: build docker
       run: docker build . --file Dockerfile --tag my-image-name:latest
     - name: run docker  
-      run: docker run -itd --name node-hello -p 3000:3000 --tag my-image-name:latest
+      run: docker run -itd --name node-hello -p 3000:3000 my-image-name:latest
     - name: test app on browser
       run: sleep 5 && curl localhost:3000 
       
