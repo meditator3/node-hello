@@ -4,17 +4,14 @@ on:
     inputs:
       source_branch:
         description: 'source branch'
-        required: false
-        default: 'main'
       destination_branch:
         description: 'destination branch'
-        required: true
 
 jobs:
   check-parameter:
     runs-on: ubuntu-latest
     steps:
        - name: echo parameter
-         run: echo "${{ github.event.inputs.source_branch }}"
+         run: echo "${{ github.event.inputs.source_branch }} , ${{ github.event.inputs.destination_branch }}"
     
       
