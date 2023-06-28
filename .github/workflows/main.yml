@@ -1,0 +1,11 @@
+name: workflow for docker node
+on:
+  push:
+    branches: [ "master" ]
+jobs:
+  Build:
+   runs-on: ubuntu-latest
+   steps:
+   # checkout stage
+    - uses: actions/checkout@v3
+    
