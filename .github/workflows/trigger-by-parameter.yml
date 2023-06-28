@@ -9,6 +9,12 @@ on:
       destination_branch:
         description: 'destination branch'
         required: true
-        
-   
+
+jobs:
+  check-parameter:
+    runs-on: ubuntu-latest
+    steps:
+       - name: echo parameter
+         run: echo "${{ github.event.inputs.source_branch }}
+    
       
