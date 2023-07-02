@@ -6,7 +6,8 @@ on:
         description: 'source branch'
       destination_branch:
         description: 'destination branch'
-
+  repository_dispatch:  # this is needed for allowing another repo to trigger this workflow
+    types: [trigger-workflow] 
 jobs:
   check-parameter:
     runs-on: ubuntu-latest
