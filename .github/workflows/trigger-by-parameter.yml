@@ -12,6 +12,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
        - name: echo parameter
+       # destination is the branch you want to merge into(master) and source is the branch you are merging from(secondary)
          run: echo "${{ github.event.inputs.source_branch }} , ${{ github.event.inputs.destination_branch }}"
        - name: create pull request with parameters
          run: |
