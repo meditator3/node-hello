@@ -1,15 +1,25 @@
 version: 0.0
-os: linux
+Resources:
+  - TargetService:
+      Type: AWS::ECS::Service
+      Properties:
+        TaskDefinition: "arn:aws:ecs:eu-west-2:381491859913:task-definition/node-hello-task:4"  
+        LoadBalancerInfo:
+          ContainerName: "node-hello-container"
+          ContainerPort: 3000
 
-hooks:
-  BeforeInstall:
-    - location: scripts/install_dependencies
-      timeout: 300
-      runas: root
-    - location: scripts/start_server
-      timeout: 300
-      runas: root
-  ApplicationStop:
-    - location: scripts/stop_server
-      timeout: 300
-      runas: root
+# version: 0.0
+# os: linux
+
+# hooks:
+#   BeforeInstall:
+#     - location: scripts/install_dependencies
+#       timeout: 300
+#       runas: root
+#     - location: scripts/start_server
+#       timeout: 300
+#       runas: root
+#   ApplicationStop:
+#     - location: scripts/stop_server
+#       timeout: 300
+#       runas: root
